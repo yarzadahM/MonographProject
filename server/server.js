@@ -1,8 +1,20 @@
 const express =require('express');
 const morgan=require('morgan');
 const bodyParser=require('body-parser')
+const Mongoose=require('mongoose')
+const dotenv=require('dotenv')
+dotenv.config()
 
 const app=express();
+
+Mongoose.connect(process.env.DATABASE,err=>{
+    if(err){
+        console.log(err)
+    }else{
+        console.log('connect to DB')
+    }
+})
+
 
 //middleware
 
